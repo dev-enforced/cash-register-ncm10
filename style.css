@@ -140,10 +140,6 @@ body {
 .main-output{
     display: none;
 }
-#reset{
-    margin: auto;
-    display: none;
-}
 .footer {
     background-color: var(--sec-color);
     padding: 1rem;
