@@ -12,7 +12,6 @@ var outputDiv=document.querySelector(".main-output")
 var noteQuantity=document.querySelectorAll(".note-quantity");
 
 var availableCash=[2000,500,100,20,10,5,1];
-var resetBtn=document.querySelector("#reset");
 function showCashDiv(){
     cashDiv.style.display="block";
 }
