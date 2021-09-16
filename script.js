@@ -60,7 +60,11 @@ function cashHandler(){
         showMessage(`The change returned is ${finalAmt}.See the table below for more info`);
         processor(finalAmt);
         showOutputDiv();       
-    }else{
+    }else if(finalAmt===0){
+        showMessage(`The change returned is ${finalAmt}.`)
+        hideOutputDiv()
+    }
+    else{
         showMessage("Please enter cash amount atleast equal to the bill amount.Try again"); 
         hideOutputDiv();
     }
