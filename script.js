@@ -52,10 +52,10 @@ function billHandler(){
     }
 }
 function cashHandler(){
-    var cashAmt=cashInput.value;
-    var billAmt=billInput.value;
+    var cashAmt=Number(cashInput.value);
+    var billAmt=Number(billInput.value);
     if(cashAmt>0 && billAmt>0){
-        var finalAmt=cashAmt-billAmt;
+        var finalAmt=parseInt(cashAmt-billAmt);
         if(finalAmt>0){
         showMessage(`The change returned is ${finalAmt}.See the table below for more info`);
         processor(finalAmt);
