@@ -1,48 +1,48 @@
-var billInput=document.querySelector("#bill-input");
-var billBtn=document.querySelector("#bill-verify");
+const billInput=document.querySelector("#bill-input");
+const billBtn=document.querySelector("#bill-verify");
 
-var cashDiv=document.querySelector(".cash-div")
-var cashInput=document.querySelector("#cash-input");
-var cashBtn=document.querySelector("#cash-verify");
+const cashDiv=document.querySelector(".cash-div")
+const cashInput=document.querySelector("#cash-input");
+const cashBtn=document.querySelector("#cash-verify");
 
-var messageDiv=document.querySelector(".main-message");
-var message=document.querySelector("#output-short");
+const messageDiv=document.querySelector(".main-message");
+const message=document.querySelector("#output-short");
 
-var outputDiv=document.querySelector(".main-output")
-var noteQuantity=document.querySelectorAll(".note-quantity");
+const outputDiv=document.querySelector(".main-output")
+const noteQuantity=document.querySelectorAll(".note-quantity");
 
-var availableCash=[2000,500,100,20,10,5,1];
-function showCashDiv(){
+const availableCash=[2000,500,100,20,10,5,1];
+const showCashDiv=()=>{
     cashDiv.style.display="block";
 }
-function hideCashDiv(){
+const hideCashDiv=()=>{
     cashDiv.style.display="none";
 }
-function showMessageDiv(){
+const showMessageDiv=()=>{
     messageDiv.style.display="block";
 }
-function hideMessageDiv(){
+const hideMessageDiv=()=>{
     messageDiv.style.display="none";
 }
-function showOutputDiv(){
+const showOutputDiv=()=>{
     outputDiv.style.display="block";
 }
-function hideOutputDiv(){
+const hideOutputDiv=()=>{
     outputDiv.style.display="none";
 }
-function showMessage(msg){
+const showMessage=(msg)=>{
     showMessageDiv();
     message.innerText=msg;
 }
-function processor(amount){
+const processor=(amount)=>{
     for(let i=0;i<availableCash.length;i++){
-        var number=Math.trunc(amount/availableCash[i]);
+        let number=Math.trunc(amount/availableCash[i]);
         amount = amount%availableCash[i];
         noteQuantity[i].innerText=number;
     }    
 }
-function billHandler(){
-    var billAmt=billInput.value;
+const billHandler=()=>{
+    let billAmt=billInput.value;
     if(billAmt>0){
         billBtn.style.display="none";
         showCashDiv();
@@ -51,11 +51,11 @@ function billHandler(){
         showMessage("Please enter proper bill amount (negative values and empty values not allowed)");
     }
 }
-function cashHandler(){
-    var cashAmt=Number(cashInput.value);
-    var billAmt=Number(billInput.value);
+const cashHandler=()=>{
+    let cashAmt=Number(cashInput.value);
+    let billAmt=Number(billInput.value);
     if(cashAmt>0 && billAmt>0){
-        var finalAmt=parseInt(cashAmt-billAmt);
+        let finalAmt=parseInt(cashAmt-billAmt);
         if(finalAmt>0){
         showMessage(`The change returned is ${finalAmt}.See the table below for more info`);
         processor(finalAmt);
@@ -64,7 +64,7 @@ function cashHandler(){
         showMessage(`The change returned is ${finalAmt}.`)
         hideOutputDiv()
     }
-    else{
+    else {
         showMessage("Please enter cash amount atleast equal to the bill amount.Try again"); 
         hideOutputDiv();
     }
